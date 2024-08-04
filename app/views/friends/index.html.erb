@@ -1,0 +1,11 @@
+<p style="color: green"><%= notice %></p>
+
+<% content_for :title, "Friends" %>
+
+<h1>Friends</h1>
+
+<div id="friends">
+    <%= render 'friends/friend' %>
+</div>
+
+<%= link_to "New friend", new_friend_path, class:"btn btn-success" %>
