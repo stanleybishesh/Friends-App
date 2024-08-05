@@ -11,14 +11,16 @@
     </thead>
     <tbody>
       <% @friends.each do |friend| %>
-      <tr>
-        <td><%= friend.first_name %></td>
-        <td><%= friend.last_name %></td>
-        <td><%= friend.email %></td>
-        <td><%= friend.phone %></td>
-        <td><%= friend.twitter %></td>
-        <td><%= link_to "Show", friend, class:"link-success link-offset-2 link-underline-opacity-0 link-underline-opacity-100-hover" %></td>
-      </tr>
+        <% if friend.user == current_user %>
+          <tr>
+            <td><%= friend.first_name %></td>
+            <td><%= friend.last_name %></td>
+            <td><%= friend.email %></td>
+            <td><%= friend.phone %></td>
+            <td><%= friend.twitter %></td>
+            <td><%= link_to "Show", friend, class:"link-success link-offset-2 link-underline-opacity-0 link-underline-opacity-100-hover" %></td>
+          </tr>
+        <% end %>
       <% end %>
     </tbody>
   </table>
