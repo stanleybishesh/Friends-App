@@ -1,4 +1,9 @@
 Rails.application.routes.draw do
+  devise_for :users
+  devise_scope :user do  #this block was externally added to solve signout issues
+    get '/users/sign_out' => 'devise/sessions#destroy'     
+  end
+
   resources :friends
   get 'home/about'
   root 'home#index'
